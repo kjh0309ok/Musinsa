@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: musinsa-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: musinsa-deployment-label
+  template:
+    metadata:
+      name: musinsa-deployment-pod
+      labels:
+        app: musinsa-deployment-label
+    spec:
+      containers:
+      - name: musinsa-deployment-container
+        image: tebily/11:musinsa_test_jonghwakim
+        ports:
+        - containerPort: 80
+        stdin: true
+        tty: true
